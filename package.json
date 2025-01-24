@@ -1,0 +1,19 @@
+{
+  "name": "map",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "build": "browserify webmap.js -o public/javascripts/webmap.js & cp node_modules/leaflet/dist/leaflet.css public/stylesheets/leaflet.css & npm start"
+  },
+  "dependencies": {
+    "browserify": "^17.0.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "leaflet": "^1.9.4",
+    "morgan": "~1.9.1",
+    "node-fetch": "^2.7.0"
+  }
+}
