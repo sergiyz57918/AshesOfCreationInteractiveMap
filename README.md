@@ -6,8 +6,6 @@ Welcome to the Ashes of Creation Interactive Map project! This tool provides pla
 
 - **Resource Locations**: Identify various gathering nodes, including types of stone, metals, gems, plants, and trees.
 - **Points of Interest**: Discover nodes, dungeons, vendors, crafting stations, hidden caches, embersprings, freeholds, and treasure mounds.
-- **Creature Spawns**: Locate general mobs, elite creatures, bosses, and named entities.
-- **User-Submitted Markers**: View and contribute custom markers to share valuable information with the community.
 - **Filters and Search**: Easily navigate the map using filters and search functionalities to find specific locations or resources.
 
 ## Getting Started
