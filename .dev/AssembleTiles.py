@@ -1,3 +1,13 @@
+"""
+You should use FModel to extract tile map data first
+packchunk0-WindowsClient.utoc contains minimap information
+You will also need an PNG image 32768x32768 pixels to act as a base
+to assemble tiles.
+Make sure you change input and output directories and filenames.
+Yes I am using synology drive to update website
+I am not getting paid for this shit!
+
+"""
 import os
 import re
 from PIL import Image
