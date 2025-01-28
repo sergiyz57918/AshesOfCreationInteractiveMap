@@ -7,6 +7,7 @@
     "build": "browserify webmap.js -o public/javascripts/webmap.js & cp node_modules/leaflet/dist/leaflet.css public/stylesheets/leaflet.css & npm start"
   },
   "dependencies": {
+    "@geoman-io/leaflet-geoman-free": "^2.18.3",
     "browserify": "^17.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",

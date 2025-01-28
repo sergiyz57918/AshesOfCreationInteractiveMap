@@ -1,6 +1,9 @@
 
 // Import the leaflet package
 var L = require('leaflet');
+require('@geoman-io/leaflet-geoman-free');
+
+
 
 /*Context Menu*/
 L.Map.mergeOptions({
@@ -2357,6 +2360,13 @@ var overlays={
 
 //GROUP CONTROLS
   L.control.layers(null, overlays).addTo(map);
+
+// add Leaflet-Geoman controls with some options to the map  
+map.pm.addControls({  
+    position: 'topleft',  
+    drawCircleMarker: false,
+    rotateMode: false,
+  }); 
 
 
 
