@@ -1,4 +1,7 @@
 var express = require('express');
+const DiscordOAuth2=require('discord-oauth2');
+const oAuth = new DiscordOAuth2();
+ 
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');

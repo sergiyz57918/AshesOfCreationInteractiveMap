@@ -1,6 +1,6 @@
 # Ashes of Creation Interactive Map
 
-Welcome to the Ashes of Creation Interactive Map project! This tool provides players with a comprehensive and interactive map of the world of Verra, enhancing exploration and gameplay in the [Ashes of Creation](https://ashesofcreation.com/) MMORPG.
+Welcome to the Ashes of Creation Interactive Map project! This tool provides players with a comprehensive and interactive map of the world of Verra, enhancing exploration and gameplay in the [Ashes of Creation](https://ashesofcreation.com/) MMORPG [DEMO](http://heroes.s6labs.com/).
 
 ## Features
 
