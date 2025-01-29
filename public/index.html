@@ -21,9 +21,12 @@
         <div class="sidebar-tabs">
             <ul role="tablist">
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#profile" role="tab"><img id="avatar_small" class="rounded-circle shadow-4-strong" alt="avatar_small" src="/images/icons/TUI_Icon_Map_Tombstone.png" width="16" height="16" ></a></li>
                 <li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
                 <li><a href="https://github.com/sergiyz57918/AshesOfCreationInteractiveMap" role="tab" target="_blank"><i class="fa fa-github"></i></a></li>
+                <li><a href="https://discord.gg/rrpmGYUn" role="tab" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+                    <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
+                  </svg></a></li>
             </ul>
 
             <ul role="tablist">
@@ -35,11 +38,15 @@
         <div class="sidebar-content">
             <div class="sidebar-pane" id="home">
                 <h1 class="sidebar-header">
-                    sidebar-v2
+                    
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
-
-                <p>A responsive sidebar for mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> or <a href="http://openlayers.org/">OpenLayers</a>.</p>
+                <img src="/images/icons/TUI_CS_AoCStackedLogo.png" class="img-fluid" alt="Ashes of Creation">
+                <h1 class="text-center">Interactive Map</h1>
+                <h3 class="text-center">Open Source Edition</h3>
+                <p>It is an Open Source interactive map based on Leaflet.JS made by a member of HEROES Gaming Group and guild in AoC.</p>
+                <p>This project created to help other communities like us to thrive in Verra</p>
+                <p>In order to test Discord authentification i am afraid you need to join our discord server <a href="https://discord.gg/rrpmGYUn">Heroes Gaming Group</a></p>
           
             </div>
 
@@ -49,16 +56,17 @@
                     <div class="m-3 card" >
                     <div class="card-body">
                     <h5 class="card-title" id="info">Not logged in</h5>
-                    <a class="btn btn-primary mt-4" id="login" style="display:none;" href="https://discord.com/oauth2/authorize?client_id=1328911891120128164&response_type=code&redirect_uri=http%3A%2F%2Fheroes.s6labs.com&scope=identify">Discord Login</a>
+                    <img id="avatar" class="rounded-circle shadow-4-strong" alt="avatar" src="/images/icons/TUI_Icon_Map_Tombstone.png">
+                    <a class="btn btn-primary mt-4" id="login" style="display:none;" href="http://localhost:3000/login">Discord Login</a>
                     <br>
                     <div class="row mb-3">
-                        <div class="col-3">Your Coins</div>
-                        <div class="col-9" id="coins">Loading...</div>
+                        <div class="col-3">Your Server Roles <a class="btn btn-primary mt-4" id="logout" style="display:none;" href="http://localhost:3000/logout">Log-Out</a></div>
+                        <div class="col-9" id="guilds">Loading...</div>
+                        
                     </div>
                     </div>
                     </div>
                     </div>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
             </div>
 
             <div class="sidebar-pane" id="messages">
@@ -72,6 +80,7 @@
     </div>
 	<div id="map" class="sidebar-map"></div>
   	<script src="javascripts/webmap.js" charset="utf-8"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 
 

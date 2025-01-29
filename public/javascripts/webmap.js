@@ -14520,6 +14520,49 @@
 
 },{}],3:[function(require,module,exports){
 
+const FRONTEND_URL = 'http://localhost:3000';
+//Discord Authintification 
+
+const getToken = async (code) => {
+    //TODO: Replace with live URL
+    const result = await fetch(FRONTEND_URL+'/getToken', {
+      method: 'POST',
+      body: JSON.stringify({ code }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+  
+    const resultJson = await result.json()
+    return resultJson
+  }
+
+  const getMe = async () => {
+    //TODO: Replace with live URL
+    const result = await fetch(FRONTEND_URL+'/p/getMe');
+    return result
+  }
+
+  const getProfile = async() =>{
+    const result = await fetch(FRONTEND_URL+'/profile');
+
+    const resultJson = await result.json();
+    if(resultJson.error ==='No Token'){
+        document.getElementById('login').style.display = `block`;
+        return
+    } else{
+    const { avatar, banner, nick, roles, user, bio } = resultJson;
+    const picture = `https://cdn.discordapp.com/avatars/${user.id}/${avatar}.png`;
+    document.getElementById('guilds').innerText = roles;
+    document.getElementById('avatar').src = picture;
+    document.getElementById('avatar_small').src = picture;
+    document.getElementById('info').innerText = `Logged in as: ${nick} (id: ${user.id})`;
+    document.getElementById('logout').style.display = `block`;
+    return resultJson
+}
+  };
+
+
 // Import the leaflet package
 var L = require('leaflet');
 require('@geoman-io/leaflet-geoman-free');
@@ -16890,6 +16933,23 @@ map.pm.addControls({
   }); 
 
 
+//DISCORD oAuth  onLoad
+  window.onload = async () => {
 
-
+    // get code from URL
+    const fragment = new URLSearchParams(window.location.search);
+    const code = fragment.get('code') ;
+    var profile  = await getProfile(); 
+    if (code) {
+      // if there is code but no token (code not yet exchanged), 
+      // exchange code for tokens and save tokens in localStorage
+      window.history.replaceState({}, document.title, "/");  // set url to "/"
+      const result = await getToken(code) 
+      if (result.token_type && result.access_token) {
+        // get the user info
+        const user= await getMe();
+        var profile  = await getProfile(); 
+      }
+    }
+  }
 },{"@geoman-io/leaflet-geoman-free":1,"leaflet":2}]},{},[3]);
