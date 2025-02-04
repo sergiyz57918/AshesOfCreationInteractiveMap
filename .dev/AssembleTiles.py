@@ -99,7 +99,7 @@ def resize_to_target_width(image, target_width):
     print(f"Done the image to a target width {target_width}...")
     return resized_image
 
-heroes_image = r"D:\tools\Output\heroes.png"
+background_image = r"D:\tools\Output\background.png"
 # Directory containing the PNG tiles
 tiles_dir = r"D:\tools\Output\Exports\AOC\Content\UI\MinimapImageTiles\Verra_World_Master"
 # Pattern to extract x and y from filenames
@@ -211,9 +211,9 @@ print(f"Saving assembled image to {output_path}")
 assembled_image.save(output_path,format="PNG", optimize=True, compress_level=9)
 print(f"Saved assembled image to {output_path}")
 
-sys.exit("Exiting the program")
+#sys.exit("Exiting the program")
 
-world_image = Image.open(heroes_image)
+world_image = Image.open(background_image)
 widthT, hightT= world_image.size
 assembled_image = resize_to_target_width(assembled_image, int(widthT))
 #widthT = assembled_image.size

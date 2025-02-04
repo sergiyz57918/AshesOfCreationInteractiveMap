@@ -1,17 +1,17 @@
+//IMPORTS 
 var express = require('express');
 require('dotenv').config();
 var cookieSession = require('cookie-session');
 var Keygrip = require('keygrip');
 const fetch = require("node-fetch");
-const { PORT = 3000, DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, DISCORD_SCOPE, FRONTEND_URL, KEY1, KEY2, DISCORD_GUILD_ID } = process.env;
-
+const { PORT, DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, DISCORD_SCOPE, FRONTEND_URL, KEY1, KEY2, DISCORD_GUILD_ID } = process.env;
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
 
 var app = express();
 
@@ -29,8 +29,8 @@ app.use(cookieSession({
 }));
 
 
+//ROUTS
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 app.post('/getToken', async (req, res) =>{
     const tokenResponseData  = await fetch('https://discord.com/api/oauth2/token',
@@ -49,14 +49,12 @@ app.post('/getToken', async (req, res) =>{
             }
         });
     const oauthData = await tokenResponseData.json();
-    console.log(oauthData);
     req.session.oauthData = oauthData;
     req.sessionOptions.maxAge = oauthData.expires_in;
     return res.json(oauthData)
 });
 
 app.get("/p/getMe", async (req, res) => {
-   // console.log('Cookies: ', req.cookies);
     if(!req.session.oauthData){
         return res.json({error:'No Token'})
     }
@@ -66,7 +64,6 @@ app.get("/p/getMe", async (req, res) => {
         console.log('NO access token');
         return res.json({error:'No Token'})
     }
-    console.log("Token:", authString);
     const me = await fetch('https://discord.com/api/users/@me/guilds/'+DISCORD_GUILD_ID+'/member',{
         headers: {
             'Authorization': token_type+' '+authString,
@@ -100,7 +97,6 @@ app.get("/logout",async(req,res)=>{
 });  
 
 app.get("/profile",async(req,res)=>{
-    console.log('Signed Cookies: ', req.session);
     if(!req.session.oauthData){
         return res.json({error:'No Token'})
     } 

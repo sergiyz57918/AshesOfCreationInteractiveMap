@@ -14,9 +14,7 @@
 		// Configure properties specific to VS Code.
 		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
-			"extensions": [
-				"mongodb.mongodb-vscode"
-			]
+			"extensions": []
 		}
 	},
 	"features": {
@@ -32,9 +30,6 @@
 			"version": "latest"
 		},
 		"ghcr.io/devcontainers-extra/features/express-generator:2": {
-			"version": "latest"
-		},
-		"ghcr.io/devcontainers-extra/features/mongosh-homebrew:1": {
 			"version": "latest"
 		},
 		"ghcr.io/devcontainers-extra/features/npm-package:1": {
